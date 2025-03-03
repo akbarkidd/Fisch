@@ -109,7 +109,7 @@ function Library:CreateWindow(hubname)
     Title_Hub.Position = UDim2.new(0, 5, 0, 0)
     Title_Hub.Size = UDim2.new(0, 558, 0, 30)
     Title_Hub.Font = Enum.Font.SourceSansBold
-    Title_Hub.Text = hubname .. " - " .. GameName
+    Title_Hub.Text = hubname .. " | " .. GameName
     Title_Hub.TextColor3 = Color3.fromRGB(255, 255, 255)
     Title_Hub.TextSize = 15.000
     Title_Hub.TextXAlignment = Enum.TextXAlignment.Left
