@@ -991,7 +991,7 @@ function Library:CreateWindow(hubname)
                     TextBox.FocusLost:Connect(onFocusLost);
                 end
 
-                function Menu_Item:CreateSlider(name,min,max,callback)
+                function Menu_Item:AddSlider(name,min,max,callback)
                     callback = callback or function(Value) end;
                     name = name or "Slider"
                     min = min or 16
