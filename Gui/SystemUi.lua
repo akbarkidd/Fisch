@@ -991,6 +991,177 @@ function Library:CreateWindow(hubname)
                     TextBox.FocusLost:Connect(onFocusLost);
                 end
 
+                function Menu_Item:CreateSlider(name,min,max,callback)
+                    callback = callback or function(Value) end;
+                    name = name or "Slider"
+                    min = min or 16
+                    max = max or 100
+                    local library4 = {}
+                    library4["Value"] = nil
+                    local Slider = Instance.new("Frame")
+                    local UICorner_17 = Instance.new("UICorner")
+                    local Title_4 = Instance.new("TextLabel")
+                    local Tracker = Instance.new("Frame")
+                    local Indicator_3 = Instance.new("Frame")
+                    local TextButton_2 = Instance.new("TextButton")
+                    local UICorner_18 = Instance.new("UICorner")
+                    local Fade = Instance.new("Frame")
+                    local UICorner_19 = Instance.new("UICorner")
+                    local Value = Instance.new("Frame")
+                    local UICorner_20 = Instance.new("UICorner")
+                    local ValueText = Instance.new("TextLabel")
+                    local Shadow_1 = Instance.new("ImageLabel")
+                    local Shadow_2 = Instance.new("ImageLabel")
+    
+                    Slider.Name = "Slider"
+                    Slider.Parent = SectionContainer
+                    Slider.BackgroundColor3 = Color3.fromRGB(40, 40, 48)
+                    Slider.Size = UDim2.new(1, 0, 0, 40)
+    
+                    UICorner_17.CornerRadius = UDim.new(0, 4)
+                    UICorner_17.Parent = Slider
+    
+                    Title_4.Name = "Title"
+                    Title_4.Parent = Slider
+                    Title_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    Title_4.BackgroundTransparency = 1.000
+                    Title_4.Position = UDim2.new(0, 7, 0, 0)
+                    Title_4.Size = UDim2.new(1, -7, 0, 30)
+                    Title_4.Font = Enum.Font.GothamBlack
+                    Title_4.Text = name
+                    Title_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    Title_4.TextSize = 12.000
+                    Title_4.TextXAlignment = Enum.TextXAlignment.Left
+    
+                    Tracker.Name = "Tracker"
+                    Tracker.Parent = Slider
+                    Tracker.BackgroundColor3 = Color3.fromRGB(30, 30, 36)
+                    Tracker.BorderSizePixel = 0
+                    Tracker.Position = UDim2.new(0, 7, 1, -10)
+                    Tracker.Size = UDim2.new(1, -14, 0, 2)
+    
+                    Indicator_3.Name = "Indicator"
+                    Indicator_3.Parent = Tracker
+                    Indicator_3.BackgroundColor3 = Color3.fromRGB(135, 255, 135)
+                    Indicator_3.BorderSizePixel = 0
+                    Indicator_3.Size = UDim2.new(0, 0, 1, 0)
+    
+                    Shadow_1.Name = "Shadow_1"
+                    Shadow_1.Parent = Indicator_3
+                    Shadow_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    Shadow_1.BackgroundTransparency = 1.000
+                    Shadow_1.Position = UDim2.new(0, -15, 0, -15)
+                    Shadow_1.Selectable = true
+                    Shadow_1.Size = UDim2.new(1, 30, 1, 30)
+                    Shadow_1.Image = "http://www.roblox.com/asset/?id=5761504593"
+                    Shadow_1.ImageColor3 = Color3.fromRGB(135, 255, 135)
+                    Shadow_1.ImageTransparency = 1
+                    Shadow_1.ScaleType = Enum.ScaleType.Slice
+                    Shadow_1.SliceCenter = Rect.new(17, 17, 283, 283)
+    
+                    TextButton_2.Parent = Indicator_3
+                    TextButton_2.BackgroundColor3 = Color3.fromRGB(135, 255, 135)
+                    TextButton_2.Position = UDim2.new(1, -4, 0.5, -4)
+                    TextButton_2.Size = UDim2.new(0, 8, 0, 8)
+                    TextButton_2.Font = Enum.Font.SourceSans
+                    TextButton_2.Text = ""
+                    TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+                    TextButton_2.TextSize = 14.000
+    
+                    Shadow_2.Name = "Shadow_2"
+                    Shadow_2.Parent = TextButton_2
+                    Shadow_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    Shadow_2.BackgroundTransparency = 1.000
+                    Shadow_2.Position = UDim2.new(0, -15, 0, -15)
+                    Shadow_2.Selectable = true
+                    Shadow_2.Size = UDim2.new(1, 30, 1, 30)
+                    Shadow_2.Image = "http://www.roblox.com/asset/?id=5761504593"
+                    Shadow_2.ImageColor3 = Color3.fromRGB(135, 255, 135)
+                    Shadow_2.ImageTransparency = 1
+                    Shadow_2.ScaleType = Enum.ScaleType.Slice
+                    Shadow_2.SliceCenter = Rect.new(17, 17, 283, 283)
+    
+                    UICorner_18.CornerRadius = UDim.new(0.5, 0)
+                    UICorner_18.Parent = TextButton_2
+    
+                    Fade.Name = "Fade"
+                    Fade.Parent = TextButton_2
+                    Fade.BackgroundColor3 = Color3.fromRGB(135, 255, 135)
+                    Fade.BackgroundTransparency = 1.000
+                    Fade.Position = UDim2.new(-0.5, 0, -0.5, 0)
+                    Fade.Size = UDim2.new(2, 0, 2, 0)
+    
+                    UICorner_19.CornerRadius = UDim.new(0.5, 0)
+                    UICorner_19.Parent = Fade
+    
+                    Value.Name = "Value"
+                    Value.Parent = Slider
+                    Value.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                    Value.BackgroundTransparency = 0.830
+                    Value.Position = UDim2.new(1, -47, 0, 4)
+                    Value.Size = UDim2.new(0, 43, 0, 22)
+    
+                    UICorner_20.CornerRadius = UDim.new(0, 4)
+                    UICorner_20.Parent = Value
+    
+                    ValueText.Name = "ValueText"
+                    ValueText.Parent = Value
+                    ValueText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    ValueText.BackgroundTransparency = 1.000
+                    ValueText.BorderColor3 = Color3.fromRGB(27, 42, 53)
+                    ValueText.Size = UDim2.new(1, 0, 1, 0)
+                    ValueText.Font = Enum.Font.Gotham
+                    ValueText.Text = min
+                    ValueText.TextColor3 = Color3.fromRGB(227, 225, 228)
+                    ValueText.TextSize = 12.000
+
+                    local value
+                    local dragging
+                    local SliderBar = Tracker
+                    local Sliderbutton = TextButton_2
+                    local Slider_2 = Indicator_3
+                    local mr = math.round
+                    function library4:SetValue(input)
+                        local pos = UDim2.new(math.clamp((input.Position.X - SliderBar.AbsolutePosition.X) / SliderBar.AbsoluteSize.X, 0, 1), 0, 0, (SliderBar.AbsoluteSize.Y))
+                        Slider_2:TweenSize(pos, Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2, true)
+                        local value = math.floor(( ((pos.X.Scale * max) / max) * (max - min) + min ) * 100) / 100
+                        ValueText.Text = tostring(mr(value))
+                        library4["Value"] = value
+                        spawn(function() callback(value) wait() ValueText.Text = mr(value) end)
+                    end;
+    
+                    Sliderbutton.InputBegan:Connect(function(input)
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                            dragging = true
+                            TS:Create(Fade,TweenInfo.new(.1),{BackgroundTransparency=0.8}):Play()
+                            TS:Create(Shadow_1,TweenInfo.new(.1),{ImageTransparency=0.7}):Play()
+                            TS:Create(Shadow_2,TweenInfo.new(.1),{ImageTransparency=0.7}):Play()
+                        end
+                    end)
+    
+                    Sliderbutton.InputEnded:Connect(function(input)
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                            dragging = false
+                            TS:Create(Fade,TweenInfo.new(.1),{BackgroundTransparency=1}):Play()
+                            TS:Create(Shadow_1,TweenInfo.new(.1),{ImageTransparency=1}):Play()
+                            TS:Create(Shadow_2,TweenInfo.new(.1),{ImageTransparency=1}):Play()
+                        end
+                    end)
+    
+                    Sliderbutton.InputBegan:Connect(function(input)
+                        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                            library4:SetValue(input)
+                        end
+                    end)
+    
+                    game:GetService("UserInputService").InputChanged:Connect(function(input)
+                        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+                            library4:SetValue(input)
+                        end
+                    end)
+                    return library4	
+                end
+
                 function Menu_Item:addKeybind(keybind_tile, preset, callback)
 
                     callback = callback or function(Value) end;
